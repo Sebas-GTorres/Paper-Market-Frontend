@@ -29,8 +29,8 @@ Sistema de gestión y e-commerce para Papelería Fundadores. Construido con **An
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/jorgeMontoya022/Papeleria-Frontend.git
-cd Papeleria-Frontend
+git clone https://github.com/Sebas-GTorres/Paper-Market-Frontend
+cd Paper-Market-Frontend
 
 # 2. Instalar dependencias
 npm install
@@ -160,4 +160,4 @@ public class CorsConfig {
 
 ## Repositorio del backend
 
-[Papelería Fundadores — Backend](https://github.com/jorgeMontoya022/papeleria)
+[Papelería Fundadores — Backend]()
