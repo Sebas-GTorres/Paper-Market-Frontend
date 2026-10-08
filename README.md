@@ -1,6 +1,6 @@
-# Papelería Fundadores — Frontend
+# Pape market— Frontend
 
-Sistema de gestión y e-commerce para Papelería Fundadores. Construido con **Angular 22**, **Tailwind CSS v4** y conectado a un backend **Spring Boot 3.4.2**.
+Sistema de gestión y e-commerce para Pape market. Construido con **Angular 22**, **Tailwind CSS v4** y conectado a un backend **Spring Boot 3.4.2**.
 
 ---
 
@@ -160,4 +160,4 @@ public class CorsConfig {
 
 ## Repositorio del backend
 
-[Papelería Fundadores — Backend](https://github.com/jorgeMontoya022/Pape-Market-)
+[Pape market — Backend](https://github.com/jorgeMontoya022/Pape-Market-)
