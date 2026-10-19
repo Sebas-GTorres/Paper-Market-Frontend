@@ -46,7 +46,7 @@ const NEXT_STATUS: Record<string, OrderStatus[]> = {
             <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
               <div>
                 <h1 class="text-xl font-bold text-text-primary font-mono">{{ order()!.orderNumber }}</h1>
-                <p class="text-sm text-text-secondary">{{ order()!.createdAt | dateEs }}</p>
+                <p class="text-sm text-text-secondary">{{ (order()!.orderDate || order()!.createdAt) | dateEs }}</p>
               </div>
               <span [ngClass]="statusMap(order()!.status).css" class="text-sm px-3 py-1">
                 {{ statusMap(order()!.status).label }}

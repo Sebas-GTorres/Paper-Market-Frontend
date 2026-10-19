@@ -199,10 +199,12 @@ export interface OrderResponse {
   subtotal: number;
   tax: number;
   total: number;
-  createdAt: string;
+  orderDate: string;
+  createdAt?: string;
   updatedAt: string | null;
   customerId: number;
   customerName?: string;
+  customer?: { id: number; names: string; surnames: string; };
   details: OrderDetailResponse[];
 }
 
