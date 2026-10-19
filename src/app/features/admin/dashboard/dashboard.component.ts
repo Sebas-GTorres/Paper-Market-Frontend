@@ -93,9 +93,10 @@ const STATUS_LABELS: Record<string, string> = {
             <h2 class="font-bold text-text-primary">Productos con stock bajo</h2>
           </div>
           @if (lowStockProducts().length === 0) {
-            <div class="flex items-center gap-2 text-success text-sm font-medium">
-              <app-icon name="check-circle" [size]="16"/>
-              Todos los productos tienen stock suficiente
+            <div class="flex items-center gap-2 text-sm font-medium"
+                 [ngClass]="totalProducts() === 0 ? 'text-text-secondary' : 'text-success'">
+              <app-icon [name]="totalProducts() === 0 ? 'package' : 'check-circle'" [size]="16"/>
+              {{ totalProducts() === 0 ? 'No hay productos registrados' : 'Todos los productos tienen stock suficiente' }}
             </div>
           } @else {
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -129,6 +130,7 @@ export class DashboardComponent implements OnInit {
   ordersByStatus   = signal<any[]>([]);
   topProducts      = signal<any[]>([]);
   lowStockProducts = signal<ProductResponse[]>([]);
+  totalProducts    = signal(0);
 
   ngOnInit() {
     forkJoin({
@@ -142,6 +144,7 @@ export class DashboardComponent implements OnInit {
         this.buildOrdersByStatus(orders);
         this.buildTopProducts(orders);
         this.lowStockProducts.set(lowStock.slice(0, 12));
+        this.totalProducts.set(products.length);
         this.loading.set(false);
       },
       error: () => this.loading.set(false)
