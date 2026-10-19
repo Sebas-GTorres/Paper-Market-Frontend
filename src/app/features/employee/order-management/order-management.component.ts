@@ -79,7 +79,7 @@ const NEXT_STATUS: Record<string, OrderStatus[]> = {
             @for (order of orders(); track order.id) {
               <tr>
                 <td class="font-mono font-semibold text-sm">{{ order.orderNumber }}</td>
-                <td class="text-sm">{{ (order.orderDate || order.createdAt) | dateEs:'short' }}</td>
+                <td class="text-sm">{{ order.orderDate | dateEs:'short' }}</td>
                 <td class="text-sm">{{ order.customer ? (order.customer.names + ' ' + order.customer.surnames) : 'Sin cliente' }}</td>
                 <td class="font-semibold text-primary text-sm">{{ order.total | currencyCo }}</td>
                 <td><span [ngClass]="statusMap(order.status).css">{{ statusMap(order.status).label }}</span></td>

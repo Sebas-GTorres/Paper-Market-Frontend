@@ -47,7 +47,7 @@ const STATUS_MAP: Record<string, { label: string; css: string }> = {
                 <app-icon name="clipboard-list" [size]="18" class="text-primary shrink-0"/>
                 <div>
                   <span class="font-mono font-semibold text-text-primary">{{ order.orderNumber }}</span>
-                  <span class="text-text-secondary text-sm ml-3">{{ (order.orderDate || order.createdAt) | dateEs }}</span>
+                  <span class="text-text-secondary text-sm ml-3">{{ order.orderDate | dateEs }}</span>
                 </div>
               </div>
               <div class="flex items-center gap-2">
