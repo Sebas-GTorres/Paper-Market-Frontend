@@ -54,9 +54,9 @@ import { extractApiError } from '../../../shared/utils/api-error.util';
           <tbody>
             @for (s of filtered(); track s.id) {
               <tr>
-                <td class="font-medium">{{ s.name }}</td>
+                <td class="font-medium">{{ s.companyName }}</td>
                 <td class="font-mono text-sm">{{ s.nit }}</td>
-                <td class="text-sm">{{ s.contactPerson || '—' }}</td>
+                <td class="text-sm">{{ s.legalRepresentative || '—' }}</td>
                 <td class="text-sm">{{ s.phone || '—' }}</td>
                 <td>
                   <span [ngClass]="s.status ? 'badge-success' : 'badge-gray'" class="badge">
@@ -93,8 +93,8 @@ import { extractApiError } from '../../../shared/utils/api-error.util';
             <div class="grid grid-cols-2 gap-4">
               <div class="form-group col-span-2">
                 <label class="form-label">Nombre *</label>
-                <input type="text" formControlName="name" class="form-control"/>
-                @if (form.controls['name'].invalid && form.controls['name'].touched) { <p class="form-error">Nombre requerido.</p> }
+                <input type="text" formControlName="companyName" class="form-control"/>
+                @if (form.controls['companyName'].invalid && form.controls['companyName'].touched) { <p class="form-error">Nombre requerido.</p> }
               </div>
               <div class="form-group">
                 <label class="form-label">NIT *</label>
@@ -111,7 +111,7 @@ import { extractApiError } from '../../../shared/utils/api-error.util';
               </div>
               <div class="form-group">
                 <label class="form-label">Persona de contacto</label>
-                <input type="text" formControlName="contactPerson" class="form-control"/>
+                <input type="text" formControlName="legalRepresentative" class="form-control"/>
               </div>
               <div class="form-group col-span-2">
                 <label class="form-label">Dirección</label>
@@ -148,12 +148,12 @@ export class SupplierManagementComponent implements OnInit {
   searchQ      = '';
 
   form = this.fb.group({
-    name:          ['', Validators.required],
-    nit:           ['', Validators.required],
-    phone:         [''],
-    email:         [''],
-    contactPerson: [''],
-    address:       ['']
+    companyName:         ['', Validators.required],
+    nit:                 ['', Validators.required],
+    phone:               [''],
+    email:               [''],
+    legalRepresentative: [''],
+    address:             ['']
   });
 
   ngOnInit() { this.loadAll(); }
@@ -168,7 +168,7 @@ export class SupplierManagementComponent implements OnInit {
 
   filterLocal() {
     const q = this.searchQ.toLowerCase();
-    this.filtered.set(q ? this.allSuppliers().filter(s => s.name.toLowerCase().includes(q) || s.nit.includes(q)) : this.allSuppliers());
+    this.filtered.set(q ? this.allSuppliers().filter(s => s.companyName.toLowerCase().includes(q) || s.nit.includes(q)) : this.allSuppliers());
   }
 
   openCreate() { this.editId = 0; this.form.reset(); this.showModal.set(true); }

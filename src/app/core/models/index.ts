@@ -80,22 +80,22 @@ export interface CategoryRequest {
 // ─── Supplier ────────────────────────────────────────────
 export interface SupplierResponse {
   id: number;
-  name: string;
+  companyName: string;
   nit: string;
   email: string | null;
   phone: string | null;
   address: string | null;
-  contactPerson: string | null;
+  legalRepresentative: string | null;
   status: boolean;
 }
 
 export interface SupplierRequest {
-  name: string;
+  companyName: string;
   nit: string;
   email?: string;
   phone?: string;
   address?: string;
-  contactPerson?: string;
+  legalRepresentative?: string;
 }
 
 // ─── Product ─────────────────────────────────────────────
