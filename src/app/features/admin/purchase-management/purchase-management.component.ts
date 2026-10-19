@@ -45,7 +45,7 @@ interface PurchaseItem { product: ProductResponse; quantity: number; unitCost: n
               <select [(ngModel)]="selectedSupplierId" class="form-control">
                 <option value="">Seleccionar proveedor...</option>
                 @for (s of suppliers(); track s.id) {
-                  <option [value]="s.id">{{ s.name }} — {{ s.nit }}</option>
+                  <option [value]="s.id">{{ s.companyName }} — {{ s.nit }}</option>
                 }
               </select>
             </div>

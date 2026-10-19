@@ -167,7 +167,7 @@ import { extractApiError } from '../../../shared/utils/api-error.util';
                 <select formControlName="supplierId" class="form-control">
                   <option value="">Seleccionar...</option>
                   @for (s of suppliers(); track s.id) {
-                    <option [value]="s.id">{{ s.name }}</option>
+                    <option [value]="s.id">{{ s.companyName }}</option>
                   }
                 </select>
                 @if (f['supplierId'].invalid && f['supplierId'].touched) { <p class="form-error">Proveedor requerido.</p> }
