@@ -75,7 +75,7 @@ const STATUS_MAP: Record<string, { label: string; css: string }> = {
                   <tbody>
                     @for (d of order.details; track d.id) {
                       <tr>
-                        <td>{{ d.productName }}</td>
+                        <td>{{ d.product?.name ?? d.productName }}</td>
                         <td class="text-right">{{ d.quantity }}</td>
                         <td class="text-right">{{ d.unitPrice | currencyCo }}</td>
                         <td class="text-right font-medium">{{ d.subtotal | currencyCo }}</td>

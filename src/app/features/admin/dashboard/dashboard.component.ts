@@ -181,8 +181,8 @@ export class DashboardComponent implements OnInit {
     const countMap = new Map<number, number>();
     const nameMap  = new Map<number, string>();
     orders.forEach(o => o.details?.forEach(d => {
-      countMap.set(d.productId, (countMap.get(d.productId) ?? 0) + d.quantity);
-      nameMap.set(d.productId, d.productName);
+      countMap.set(d.product?.id ?? d.productId!, (countMap.get(d.product?.id ?? d.productId!) ?? 0) + d.quantity);
+      nameMap.set(d.product?.id ?? d.productId!, d.product?.name ?? d.productName ?? `#${d.product?.id ?? d.productId}`);
     }));
     this.topProducts.set(
       Array.from(countMap.entries())

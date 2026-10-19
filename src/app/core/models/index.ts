@@ -181,13 +181,28 @@ export interface AddCartItemRequest {
 // ─── Order ───────────────────────────────────────────────
 export type OrderStatus = 'PENDING' | 'PAID' | 'PREPARING' | 'SHIPPED' | 'DELIVERED' | 'CANCELED';
 
+export interface CustomerInOrder {
+  id: number;
+  names: string;
+  surnames: string;
+  document: string;
+  email: string;
+  phone: string | null;
+  address: string | null;
+  status: boolean;
+  registrationDate: string;
+  userId: number;
+}
+
 export interface OrderDetailResponse {
   id: number;
-  productId: number;
-  productName: string;
   quantity: number;
   unitPrice: number;
   subtotal: number;
+  product: { id: number; name: string; price: number; stock: number; };
+  // campos legacy por compatibilidad
+  productId?: number;
+  productName?: string;
 }
 
 export interface OrderResponse {
@@ -197,14 +212,11 @@ export interface OrderResponse {
   deliveryAddress: string;
   notes: string | null;
   subtotal: number;
+  discount?: number;
   tax: number;
   total: number;
   orderDate: string;
-  createdAt?: string;
-  updatedAt: string | null;
-  customerId: number;
-  customerName?: string;
-  customer?: { id: number; names: string; surnames: string; };
+  customer: CustomerInOrder;
   details: OrderDetailResponse[];
 }
 
