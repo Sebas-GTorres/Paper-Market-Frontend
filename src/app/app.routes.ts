@@ -142,7 +142,8 @@ export const routes: Routes = [
       },
       {
         path: 'orders',
-        loadComponent: () => import('./features/employee/order-management/order-management.component').then(m => m.OrderManagementComponent)
+        loadComponent: () => import('./features/employee/order-management/order-management.component').then(m => m.OrderManagementComponent),
+        data: { base: '/admin/orders' }
       },
       {
         path: 'orders/:id',

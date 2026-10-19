@@ -1,6 +1,6 @@
 ﻿import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { OrderService } from '../../../core/services/order.service';
 import { ToastService } from '../../../core/services/toast.service';
@@ -109,6 +109,7 @@ const NEXT_STATUS: Record<string, OrderStatus[]> = {
 })
 export class OrderManagementComponent implements OnInit {
   protected orderSvc = inject(OrderService);
+  private route      = inject(ActivatedRoute);
   protected toast    = inject(ToastService);
 
   orders       = signal<OrderResponse[]>([]);
@@ -118,7 +119,9 @@ export class OrderManagementComponent implements OnInit {
 
   statusOptions = Object.entries(STATUS_MAP).map(([value, v]) => ({ value, label: v.label }));
 
-  protected get detailLinkBase() { return '/employee/orders'; }
+  protected get detailLinkBase() {
+    return this.route.snapshot.data['base'] ?? '/employee/orders';
+  }
   detailLink(id: number) { return `${this.detailLinkBase}/${id}`; }
 
   ngOnInit() { this.loadAll(); }
