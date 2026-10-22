@@ -26,7 +26,7 @@ import { extractApiError } from '../../../shared/utils/api-error.util';
 
         <!-- Card -->
         <div class="card p-8">
-          <h2 class="text-xl font-bold text-text-primary mb-6">Hola Iniciar Sesión</h2>
+          <h2 class="text-xl font-bold text-text-primary mb-6">Bienvido a papaer market</h2>
 
           <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
 
