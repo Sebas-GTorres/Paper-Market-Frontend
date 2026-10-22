@@ -50,7 +50,7 @@ const STATUS_LABELS: Record<string, string> = {
 
         <!-- Pedidos por estado -->
         <div class="card p-6">
-          <h2 class="font-bold text-text-primary mb-5">Pedidos por estado</h2>
+          <h2 class="font-bold text-text-primary mb-5">Pedidos</h2>
           <div class="space-y-3">
             @for (entry of ordersByStatus(); track entry.status) {
               <div class="flex items-center gap-3">
